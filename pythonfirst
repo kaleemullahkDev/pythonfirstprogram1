@@ -1,19 +1,19 @@
 
-import subprocess
+# Course Grade Calculator
 
-def git_push():
-    try:
-        subprocess.run(["git", "add", "."], check=True)
-        
-        message = input("Enter commit message: ")
-        subprocess.run(["git", "commit", "-m", message], check=True)
-        
-        subprocess.run(["git", "push"], check=True)
-        
-        print("Successfully pushed to Git!")
+marks = float(input("Enter your marks (out of 100): "))
 
-    except subprocess.CalledProcessError:
-        print("Git operation failed. Check your repository and credentials.")
-
-if __name__ == "__main__":
-    git_push()
+if marks < 0 or marks > 100:
+    print("Invalid marks! Please enter marks between 0 and 100.")
+elif marks >= 90:
+    print("Your Grade is A+")
+elif marks >= 80:
+    print("Your Grade is A")
+elif marks >= 70:
+    print("Your Grade is B")
+elif marks >= 60:
+    print("Your Grade is C")
+elif marks >= 50:
+    print("Your Grade is D")
+else:
+    print("Your Grade is F (Fail)")
