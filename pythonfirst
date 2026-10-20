@@ -1,0 +1,19 @@
+
+import subprocess
+
+def git_push():
+    try:
+        subprocess.run(["git", "add", "."], check=True)
+        
+        message = input("Enter commit message: ")
+        subprocess.run(["git", "commit", "-m", message], check=True)
+        
+        subprocess.run(["git", "push"], check=True)
+        
+        print("Successfully pushed to Git!")
+
+    except subprocess.CalledProcessError:
+        print("Git operation failed. Check your repository and credentials.")
+
+if __name__ == "__main__":
+    git_push()
